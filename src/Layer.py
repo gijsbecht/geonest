@@ -6,9 +6,9 @@ import requests
 
 
 class Layer:
-    def __init__(self, postgres_url: str) -> None:
+    def __init__(self, postgres_url: str, gdf: gpd.GeoDataFrame=gpd.GeoDataFrame()) -> None:
         self.engine = create_engine(postgres_url)
-        self.gdf = gpd.GeoDataFrame()
+        self.gdf = gdf
 
     def to_postgres(self, table_name: str, schema_name: str) -> None:
         self.gdf.to_postgis(table_name, self.engine, if_exists='replace', schema=schema_name)
