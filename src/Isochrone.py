@@ -1,10 +1,7 @@
 import geopandas as gpd
-import geojson
-import shapely
 import pandas as pd
 
 from .Layer import Layer
-from .Geometry import Geometry  
 
 class Isochrone(Layer):
     def __init__(
@@ -27,12 +24,9 @@ class Isochrone(Layer):
         self.points = points
         self.get_features()
     
-    def _get_isochrones(self, minutes: int) -> gpd.GeoDataFrame:
+    def _get_isochrones(self) -> gpd.GeoDataFrame:
         for _, feature in self.points.iterrows():
-            if isinstance(feature.geometry, (shapely.geometry.Polygon, shapely.geometry.MultiPolygon)):
-                point = feature.geometry.centroid
-            else:
-                point = feature.geometry
+            point = feature.geometry.centroid
 
             coordinates = f'{point.x},{point.y}'
             url = self.url + '/' + coordinates
