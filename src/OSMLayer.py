@@ -14,5 +14,6 @@ class OSMLayer(Layer):
     def get_geometries(self):
         try:
             self.gdf = ox.features_from_polygon(self.area.reproject().geom_shapely, tags=self.tags)
+            print('obtained geometries from OSM', self.gdf.shape[0]) 
         except:
             self.gdf  = gpd.GeoDataFrame()
