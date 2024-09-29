@@ -13,6 +13,13 @@ class Layer:
     def to_postgres(self, table_name: str, schema_name: str) -> None:
         self.gdf.to_postgis(table_name, self.engine, if_exists='replace', schema=schema_name)
     
+    def from_geopackage(self, path: str) -> None:
+        self.gdf = gpd.read_file(path)
+    
+    def reproject(self, to_crs: str) -> None:
+        self.gdf = self.gdf.to_crs(to_crs)
+        return self
+    
     def get_response(self, url: str, params: dict) -> requests.Response:
         response = requests.get(url, params=params) 
         if response.status_code == 200:
