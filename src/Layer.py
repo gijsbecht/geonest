@@ -16,7 +16,7 @@ class Layer:
     def from_geopackage(self, path: str) -> None:
         self.gdf = gpd.read_file(path)
     
-    def reproject(self, to_crs: str) -> None:
+    def reproject(self, to_crs: str):
         self.gdf = self.gdf.to_crs(to_crs)
         return self
     
