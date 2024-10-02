@@ -15,5 +15,6 @@ class OSMLayer(Layer):
         try:
             self.gdf = ox.features_from_polygon(self.area.reproject().geom_shapely, tags=self.tags)
             print('obtained geometries from OSM', self.gdf.shape[0]) 
-        except:
+        except Exception as e:
+            print('Error getting geometries from OSM', e)
             self.gdf  = gpd.GeoDataFrame()
