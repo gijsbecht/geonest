@@ -45,7 +45,7 @@ class Isochrone(Layer):
     def get_features(self):
         for minutes in self.contours_minutes:
             self.params['contours_minutes'] = minutes
-            self._get_isochrones(minutes)
+            self._get_isochrones()
 
 
         
