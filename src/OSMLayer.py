@@ -13,7 +13,7 @@ class OSMLayer(Layer):
 
     def get_geometries(self):
         try:
-            self.gdf = ox.features_from_polygon(self.area.reproject().geom_shapely, tags=self.tags)
+            self.gdf = ox.features_from_polygon(self.area.geom_shapely, tags=self.tags)
             print('obtained geometries from OSM', self.gdf.shape[0]) 
         except Exception as e:
             print('Error getting geometries from OSM', e)
