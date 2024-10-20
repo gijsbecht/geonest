@@ -1,6 +1,6 @@
 # GeoNest
 
-GeoNest is a geospatial data management tool for determining the best place to live in The Netherlands. Recommended use in combination with a (local) PostgreSQL database with the POSTGIS extension installed, use QGIS for data visualisation.
+GeoNest is a geospatial data extraction and processing tool for determining the best place to live in The Netherlands. Recommended use in combination with a (local) PostgreSQL database with the POSTGIS extension installed, use QGIS for data visualisation.
 
 ## Installation Guide
 
@@ -40,11 +40,11 @@ You should now have GeoNest up and running!
     - Load data from WFS Layer.
     - Load data from Open Streetmap (OSM).
 
-2. **(Optional) Compute Isochrones**
+2. **(Optional) Compute Isochrones:**
     An isochrone map in geography and urban planning is a map that depicts the area accessible from a point within a certain time threshold. A Mapbox API key is required for this step.
 
-3. **Execute geospatial analysis**
+3. **Execute geospatial analysis:**
     Run `sql/sql.sql` to compute results.
 
-4. **Visualise results**
+4. **Visualise results:**
     Use QGIS to display results.
