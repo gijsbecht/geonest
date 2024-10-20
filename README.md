@@ -31,3 +31,20 @@ Follow these steps to set up GeoNest:
     ```
 
 You should now have GeoNest up and running!
+
+## How to use
+
+1. **Get data:**
+    Use the `get_data.ipynb` notebook to extract all the data required for your analysis. The following options are available:
+    - Load local data from `geopackage`.
+    - Load data from WFS Layer.
+    - Load data from Open Streetmap (OSM).
+
+2. **(Optional) Compute Isochrones**
+    An isochrone map in geography and urban planning is a map that depicts the area accessible from a point within a certain time threshold. A Mapbox API key is required for this step.
+
+3. **Execute geospatial analysis**
+    Run `sql/sql.sql` to compute results.
+
+4. **Visualise results**
+    Use QGIS to display results.
